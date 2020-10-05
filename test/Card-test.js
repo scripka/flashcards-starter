@@ -25,6 +25,11 @@ describe('Card', function() {
     expect(card.answers).to.deep.equal(['object', 'array', 'function']);
   });
 
+  it('should store the correct answer', function() {
+    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+    expect(card.correctAnswer).to.equal('object');
+  });
+
   it('should store a card ID', function() {
     const card = new Card(1, 'What is a comma-separated list of related values?', ['object', 'array', 'function'], 'object');
     expect(card.cardId).to.equal(1);
