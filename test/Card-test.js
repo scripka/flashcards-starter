@@ -17,7 +17,7 @@ describe('Card', function() {
 
   it('should store a question', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(card.question).to.equal('What allows you to define a set of related information using key-value pairs?');
+    expect(card.question).to.deep.equal('What allows you to define a set of related information using key-value pairs?');
   });
 
   it('should store a list of possible answers', function() {
@@ -27,22 +27,22 @@ describe('Card', function() {
 
   it('should store the correct answer', function() {
     const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(card.correctAnswer).to.equal('object');
+    expect(card.correctAnswer).to.deep.equal('object');
   });
 
   it('should store a card ID', function() {
     const card = new Card(1, 'What is a comma-separated list of related values?', ['object', 'array', 'function'], 'object');
-    expect(card.cardId).to.equal(1);
+    expect(card.cardId).to.deep.equal(1);
   });
 
   it('should store a different id', function() {
     const card = new Card(2, 'What is a comma-separated list of related values?', ['object', 'array', 'function'], 'object');
-    expect(card.cardId).to.equal(2);
+    expect(card.cardId).to.deep.equal(2);
   });
 
   it('should store a different question', function() {
     const card = new Card(2, 'What is a comma-separated list of related values?', ['object', 'array', 'function'], 'object');
-    expect(card.question).to.equal('What is a comma-separated list of related values?');
+    expect(card.question).to.deep.equal('What is a comma-separated list of related values?');
   });
 
   it('should store a different set of possible answers', function() {
@@ -52,6 +52,6 @@ describe('Card', function() {
 
   it('should store a different correct answer', function() {
     const card = new Card(2, 'What is a comma-separated list of related values?', ["mutator method", "accessor method", "iteration method"], 'array');
-    expect(card.correctAnswer).to.equal('array');
+    expect(card.correctAnswer).to.deep.equal('array');
   });
 });
