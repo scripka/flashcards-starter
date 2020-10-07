@@ -5,8 +5,14 @@ const Card = require('../src/Card');
 
 describe('Card', function() {
 
+  let card1, card2;
+
+  beforeEach (function() {
+    card1 = new Card(1, 'What is a scary word?', ['boo', 'bah', 'whah'], 'boo');
+    card2 = new Card(2, 'How many colors in a rainbow?', ['nine', 'many', 'seven'], 'seven');
+  });
+
   it('should be a function', function() {
-    const card = new Card();
     expect(Card).to.be.a('function');
   });
 
@@ -16,42 +22,31 @@ describe('Card', function() {
   });
 
   it('should store a question', function() {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(card.question).to.deep.equal('What allows you to define a set of related information using key-value pairs?');
+    expect(card1.question).to.deep.equal('What is a scary word?');
   });
 
   it('should store a list of possible answers', function() {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(card.answers).to.deep.equal(['object', 'array', 'function']);
+    expect(card1.answers).to.deep.equal(['boo', 'bah', 'whah']);
   });
 
   it('should store the correct answer', function() {
-    const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-    expect(card.correctAnswer).to.deep.equal('object');
+    expect(card1.correctAnswer).to.deep.equal('boo');
   });
 
   it('should store a card ID', function() {
-    const card = new Card(1, 'What is a comma-separated list of related values?', ['object', 'array', 'function'], 'object');
-    expect(card.cardId).to.deep.equal(1);
-  });
-
-  it('should store a different id', function() {
-    const card = new Card(2, 'What is a comma-separated list of related values?', ['object', 'array', 'function'], 'object');
-    expect(card.cardId).to.deep.equal(2);
+    expect(card1.cardId).to.deep.equal(1);
+    expect(card2.cardId).to.deep.equal(2);
   });
 
   it('should store a different question', function() {
-    const card = new Card(2, 'What is a comma-separated list of related values?', ['object', 'array', 'function'], 'object');
-    expect(card.question).to.deep.equal('What is a comma-separated list of related values?');
+    expect(card2.question).to.deep.equal('How many colors in a rainbow?');
   });
 
   it('should store a different set of possible answers', function() {
-    const card = new Card(2, 'What is a comma-separated list of related values?', ["array", "object", "function"], 'object');
-    expect(card.answers).to.deep.equal(["array", "object", "function"]);
+    expect(card2.answers).to.deep.equal(['nine', 'many', 'seven']);
   });
 
   it('should store a different correct answer', function() {
-    const card = new Card(2, 'What is a comma-separated list of related values?', ["mutator method", "accessor method", "iteration method"], 'array');
-    expect(card.correctAnswer).to.deep.equal('array');
+    expect(card2.correctAnswer).to.deep.equal('seven');
   });
 });
