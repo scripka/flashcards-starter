@@ -8,22 +8,22 @@ class Round {
     this.incorrectGuesses = [];
   }
   returnCurrentCard() {
-    return this.deck.splice(0, 1)[0]
+    return this.deck[0];
   }
 
   takeTurn(userGuess) {
     let userTurn = new Turn(userGuess, this.returnCurrentCard());
+    this.deck.splice(0, 1);
     this.turn += 1;
     if (!userTurn.evaluateGuess()) {
-      this.incorrectGuesses.push(userTurn.currentCard.cardId);
+      this.incorrectGuesses.push(userTurn.currentCard.id);
     }
-
     return userTurn.giveFeedback();
   }
 
   calculatePercentCorrect() {
     if (!this.turn) {
-      return "You didn't make any turns!";
+      return;
     } else {
       let incorrectAnswersNum = this.incorrectGuesses.length;
       let correctAnswersPercent = 100 - Math.round((incorrectAnswersNum / this.turn) * 100);
@@ -33,7 +33,7 @@ class Round {
 
   endRound() {
     let correctPercent = this.calculatePercentCorrect();
-    return `** Round over! ** You answered ${correctPercent}% of the questions correctly!`;
+    console.log(`** Round over! ** You answered ${correctPercent}% of the questions correctly!`);
   }
 }
 
