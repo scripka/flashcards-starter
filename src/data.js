@@ -150,6 +150,24 @@ const prototypeData = [{
   "correctAnswer": "prototype method"
 }]
 
+
+const secondRoundData = [{
+  "id": 31,
+  "question": "What is a scary word?",
+  "answers": ["boo", "bah", "whah"],
+  "correctAnswer": "boo"
+}, {
+  "id": 32,
+  "question": "How many colors in a rainbow?",
+  "answers": ["nine", "many", "seven"],
+  "correctAnswer": "seven"
+}, {
+  "id": 33,
+  "question": "Is Pluto a planet?",
+  "answers": ['pluto is always a planet to me', 'no', 'I do not know'],
+  "correctAnswer": "no"
+}]
+
 module.exports = {
   prototypeData
 }

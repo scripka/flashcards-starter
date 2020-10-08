@@ -33,7 +33,7 @@ describe('Card', () => {
     expect(card1.correctAnswer).to.equal('boo');
   });
 
-  it('should store a card ID', () => {
+  it('should store a card id', () => {
     expect(card1.id).to.deep.equal(1);
     expect(card2.id).to.deep.equal(2);
   });
@@ -66,7 +66,7 @@ describe('Card', () => {
     expect(result).to.equal(true);
   });
 
-  it('should have ID stored as a number', () => {
+  it('should have id stored as a number', () => {
     expect(card1.id).to.be.a('number');
   });
 

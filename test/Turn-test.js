@@ -6,13 +6,13 @@ const Card = require('../src/Card');
 
 describe('Turn', () => {
 
-  let card1, card2, turn, anotherTurn;
+  let card1, card2, correctTurn, incorrectTurn;
 
   beforeEach (() => {
     card1 = new Card(1, "What is a scary word?", ['boo', 'bah', 'whah'], 'boo');
     card2 = new Card(2, 'How many colors in a rainbow?', ['nine', 'many', 'seven'], 'seven');
-    turn = new Turn('boo', card1);
-    anotherTurn = new Turn('woo', card2);
+    correctTurn = new Turn('boo', card1);
+    incorrectTurn = new Turn('many', card2);
   });
 
   it('should be a function', () => {
@@ -20,38 +20,38 @@ describe('Turn', () => {
   });
 
   it('should be an instance of Turn', () => {
-    const turn1 = new Turn();
-    expect(turn1).to.be.an.instanceof(Turn);
+    const turn = new Turn();
+    expect(turn).to.be.an.instanceof(Turn);
   });
 
   it('should only accept a string answer from a user', () => {
-    expect(turn.guess).to.equal('boo');
-    expect(turn.guess).to.be.a('string');
+    expect(correctTurn.guess).to.equal('boo');
+    expect(correctTurn.guess).to.be.a('string');
 
-    expect(anotherTurn.guess).to.equal('woo');
-    expect(anotherTurn.guess).to.be.a('string');
+    expect(incorrectTurn.guess).to.equal('many');
+    expect(incorrectTurn.guess).to.be.a('string');
   });
 
   it('should play the current card', () => {
-    expect(turn.currentCard).to.equal(card1);
-    expect(turn.currentCard).to.be.an.instanceof(Card);
+    expect(correctTurn.currentCard).to.equal(card1);
+    expect(correctTurn.currentCard).to.be.an.instanceof(Card);
   });
 
   it('should record the provided guess', () => {
-    expect(turn.returnGuess()).to.equal(turn.guess);
+    expect(correctTurn.returnGuess()).to.equal(correctTurn.guess);
   });
 
   it('should record the current card', () => {
-    expect(turn.returnCard()).to.equal(turn.currentCard);
+    expect(correctTurn.returnCard()).to.equal(correctTurn.currentCard);
   });
 
   it('should evaluate our guessed answers', () => {
-    expect(turn.evaluateGuess()).to.equal(true);
-    expect(anotherTurn.evaluateGuess()).to.equal(false);
+    expect(correctTurn.evaluateGuess()).to.equal(true);
+    expect(incorrectTurn.evaluateGuess()).to.equal(false);
   });
 
   it('should give us a feedback', () => {
-    expect(turn.giveFeedback()).to.equal('Correct!');
-    expect(anotherTurn.giveFeedback()).to.equal('Incorrect!');
+    expect(correctTurn.giveFeedback()).to.equal('Correct!');
+    expect(incorrectTurn.giveFeedback()).to.equal('Incorrect!');
   });
 });
