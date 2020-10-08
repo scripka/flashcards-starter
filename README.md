@@ -4,7 +4,7 @@
 
 * [Introduction](#introduction)
 * [Demo](#demo)
-* [Install/Setup Instructions](#install/Setup-instructions)
+* [Install and Setup Instructions](#install-and-Setup-instructions)
 * [Tools](#tools)
 * [Contributors](#contributors)
 
@@ -18,7 +18,7 @@ FlashCards is a trivia game in which players are asked different questions with 
 
 ![flash cards example gif](https://media.giphy.com/media/7cF4Gfu4FPFMzMBtHu/giphy.gif)
 
-## Install/Setup Instructions
+## Install and Setup Instructions
 
 ---
 
